@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% include header.html %}
+
+<div class="tag-page project-grid row">
+
+    <div class = "heading"><h1>{{page.tag}}</h1></div>
+    
+    <ul>
+      {% for post in site.posts %}
+      {% for tag in post.tags %}
+      {% if tag == page.tag %}
+
+        {% include grid_box.html %}
+
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </ul>
+
+</div>
+
+<span class = "tablet-indicator"></span>
+<span class = "large-indicator"></span>
+<span class = "xl-indicator"></span>
+<span class = "mobile-indicator"></span>
+

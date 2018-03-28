@@ -1,0 +1,11 @@
+{% for post in paginator.posts %}
+
+  {% include grid_box.html %}
+
+{% endfor %}
+
+{% if paginator.next_page_path contains 'page' %}
+  <a class = "next" href = "//seahack.org{{ paginator.next_page_path }}/">Next</a>
+{% endif %}
+
+<div class = "hidden"><a href = "#">Back to Top</a></div>

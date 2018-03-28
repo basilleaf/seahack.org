@@ -1,0 +1,49 @@
+---
+title: homepage
+---
+{% if page.url contains 'page' %}{% else %}<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+      <div class = "wrapper">
+
+        <h1 class="hidden">{{ site.title }}</h1>
+
+        <div class="hero-image"></div>
+
+        {% include header.html %}
+
+        <div class="tagline">
+
+          <h2>{{ site.description }}</h2>
+
+        </div>
+
+    <div class="project-grid row">
+
+  {% endif %}
+
+  {% include homepage_grid.html %}
+
+  <span class = "tablet-indicator"></span>
+  <span class = "large-indicator"></span>
+  <span class = "xl-indicator"></span>
+  <span class = "mobile-indicator"></span>
+
+  {% if page.url contains 'page' %}{% else %}
+
+    </div><!-- /grid -->
+
+    <div class="push"></div>
+
+  </div> <!-- /wrapper  -->
+
+    {% include footer.html  %}
+
+  </body>
+
+</html>
+{% endif %}

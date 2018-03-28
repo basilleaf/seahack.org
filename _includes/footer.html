@@ -1,0 +1,30 @@
+<div class = "site-footer">
+
+    <a href = "/disclaimer">Disclaimer</a>
+
+</div>
+
+<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+
+<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+
+<script src = "/assets/js/jquery-scrolltofixed-min.js"></script>
+<script src = "/assets/js/jquery.jscroll.min.js"></script>
+
+<script src="/assets/js/main.js"></script>
+
+{% capture site_posts_js %}
+<script>
+/* hello {{ page.title }} */
+/* create json list of all project names - for knowing when one may be too long for our font */
+var site_posts = [
+{% for post in site.posts %}
+  { "title_slug": "{{ post.title | slugify }}",}
+  {% unless forloop.last %},{% endunless %}
+{% endfor %}
+];
+</script>
+{% endcapture %}
+{{ site_posts_js | strip_newlines }}

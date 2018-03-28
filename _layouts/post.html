@@ -1,0 +1,87 @@
+---
+layout: default
+---
+{% include header.html %}
+
+{% if page.banner %}
+<div class="project-banner">
+
+  <img width = "100%" src="/assets/img/project_banners/{{ page.banner }}" alt="">
+
+</div>
+
+{% else %}
+<div class = "nobanner">
+{% endif %}
+
+<div class="project-page row">
+
+  <div class="content sidebar col-sm-4">
+
+    <h1>{{ page.title }}</h1>
+
+    <div class = "small-underline"></div>
+
+    <ul class = "project-links">
+
+      {% if page.website %}
+        {% assign web_label = page.website | split:'://' | last %}
+        <li class = "link"><a href = "{{ page.website }}">{{ web_label | truncate: 25 }}</a></li>
+      {% endif %}
+
+      {% if page.twitter %}
+        {% assign twitter_label = page.twitter | split:'twitter.com/' | last %}
+        <li class = "twitter"><a href = "{{ page.twitter }}">{{ twitter_label | truncate: 25 }}</a></li>
+      {% endif %}
+
+      {% if page.facebook %}
+        {% assign fb_label = page.facebook | split:'facebook.com/' | last %}
+        <li class = "facebook"><a href = "{{ page.facebook }}">{{ fb_label | truncate: 25 }}</a></li>
+      {% endif %}
+
+    </ul>
+
+    {% if page.tags %}
+      {% assign c = 0 %}
+
+      <ul class = "tags hidden-xs">
+        {% for tag in page.tags %}
+
+          <li><a href = "/tag/{{ tag }}/">{{ tag }}</a></li>
+
+          {% comment %} only display 3 {% endcomment %}
+          {% assign c = c | plus: 1 %}
+          {% if c == 5 %} {% break %} {% endif %}
+
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+
+  </div><!-- page-content -->
+
+  <div class="content post-content col-sm-8">
+    {{ page.content }}
+
+    <div class = "image-credit">{{ page.caption }}</div>
+  </div><!-- post-content -->
+
+
+  {% if page.tags %}
+    {% assign c = 0 %}
+
+    <ul class = "tags visible-xs">
+      {% for tag in page.tags %}
+
+          <li><a href = "/tag/{{ tag }}/">{{ tag }}</a></li>
+
+        {% comment %} only display 3 {% endcomment %}
+        {% assign c = c | plus: 1 %}
+        {% if c == 3 %} {% break %} {% endif %}
+
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+</div>

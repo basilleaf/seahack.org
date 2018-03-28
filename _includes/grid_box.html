@@ -1,0 +1,27 @@
+<div class = "project-box col-sm-4">
+
+  <div class = "dummy"></div>
+
+  <div class = "{{ post.title | slugify }} box-content">
+
+    <a class="" href="{{ post.url }}">
+
+      <div class="circle">
+
+        <div class = "cat">
+          {{ post.category }}
+        </div>
+
+        <div class = "project-underline"></div>
+
+        <h2 class = "{{ post.title | slugify }}">
+          {{ post.title }}
+        </h2>
+
+      </div><!-- /circle -->
+    </a>
+
+  </div>
+
+</div><!-- /project -->
+
